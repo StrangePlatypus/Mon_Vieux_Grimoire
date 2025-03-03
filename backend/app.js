@@ -1,8 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose')
-const booksRoutes = require('./routes/books')
 
-const app = express();
+const booksRoutes = require('./routes/books')
+const userRoutes = require('./routes/user')
+const path = require('path')
 
 
 // CONNEXION TO MONGODB API
@@ -15,6 +16,9 @@ mongoose.connect('mongodb+srv://StrangePlatypus:usvqcdl11006@cluster0.soabn.mong
     .catch(() => console.log('Connexion à MongoDB échouée !'));
 
 
+const app = express();
+
+
 // INSTALLED CORS SO THE FRONTEND APP CAN COMMUNICATE WITH THE API   
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -23,7 +27,12 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use('/api/stuff', booksRoutes)
+app.use(express.json())
+
+app.use('/images', express.static(path.join(__dirname, 'images')))
+app.use('/api/books', booksRoutes)
+app.use('/api/auth', userRoutes)
+
 
 
 module.exports = app;
