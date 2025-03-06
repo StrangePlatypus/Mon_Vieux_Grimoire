@@ -1,7 +1,9 @@
 const multer = require('multer');
-const sharp = require('sharp');
 const path = require('path');
+const sharp = require('sharp');
 const fs = require('fs');
+
+
 
 
 // TELLING TO MULTER WHERE TO STORE THE FILES AND HOW TO CREATE THEIR NAME
@@ -19,7 +21,8 @@ const storage = multer.diskStorage({
 
 module.exports = multer({ storage: storage }).single('image');
 
-module.exports.resizeImage = (req, res, next) => {
+
+module.exports.sharpImage = (req, res, next) => {
     // We check if the file exist
     if (!req.file) {
         return next();
