@@ -4,7 +4,7 @@
 
 Dans un premier terminal, tapez 'cd frontend' puis 'npm install' et enfin 'npm start'.
 
-Dans un second terminal, tapez 'cd backend' puis 'npm install' et enfin 'nodemon server'.
+Dans un second terminal, tapez 'cd Mon_Vieux_Grimoire' puis 'npm install' et enfin 'nodemon server'.
 
 ## CONTEXTE
 
