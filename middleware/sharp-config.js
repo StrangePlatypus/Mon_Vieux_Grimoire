@@ -17,6 +17,7 @@ module.exports = (req, res, next) => {
         sharp(filePath)
             // We change the file format to webp
             .toFormat('webp')
+            .resize({ height: 260 })
             // Change the file path to the new webp path
             .toFile(outputFilePath)
             .then(() => {
